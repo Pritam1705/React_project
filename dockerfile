@@ -25,8 +25,8 @@ COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copy the built React app from the previous stage to the Nginx web root
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Expose port 80
-EXPOSE 80
+
+EXPOSE 3000
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
