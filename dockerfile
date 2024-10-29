@@ -19,6 +19,9 @@ RUN npm run build
 # Use a lightweight server to serve the React app
 FROM nginx:stable-alpine
 
+# Add custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 # Copy the built React app from the previous stage to the Nginx web root
 COPY --from=build /app/build /usr/share/nginx/html
 
